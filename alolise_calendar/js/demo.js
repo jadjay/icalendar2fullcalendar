@@ -33,15 +33,7 @@ $(document).ready(function() {
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
         },
-	/*
- 	 *  https://fullcalendar.io/docs/locale
-		import esLocale from '@fullcalendar/core/locales/es';
-		import frLocale from '@fullcalendar/core/locales/fr';
-		locale: frLocale,
- 	 */
-	Calendar: {
-	    locale: 'fr',
-        },
+	locale: 'fr',
 
         defaultView: 'month',
 	    /*
