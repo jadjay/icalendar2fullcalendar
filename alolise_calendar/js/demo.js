@@ -33,7 +33,16 @@ $(document).ready(function() {
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
         },
-	locale: frLocale,
+	/*
+ 	 *  https://fullcalendar.io/docs/locale
+		import esLocale from '@fullcalendar/core/locales/es';
+		import frLocale from '@fullcalendar/core/locales/fr';
+		locale: frLocale,
+ 	 */
+	Calendar: {
+	    locale: 'fr',
+        },
+
         defaultView: 'month',
 	    /*
         defaultDate: '2016-03-01'
@@ -48,6 +57,4 @@ $(document).ready(function() {
 
 /*
  *
-import esLocale from '@fullcalendar/core/locales/es';
-import frLocale from '@fullcalendar/core/locales/fr';
 */
