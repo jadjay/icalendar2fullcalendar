@@ -34,6 +34,7 @@ $(document).ready(function() {
             right: 'month,agendaWeek,agendaDay'
         },
 	locale: 'fr',
+	lang: 'fr',
 
         defaultView: 'month',
 	    /*
