@@ -43,7 +43,24 @@ $(document).ready(function() {
 	*/
         eventMouseover: function (data, event, view) {
 
-            tooltip = '<div class="tooltiptopicevent" style="width:20%;height:auto;background:'+data.color+';position:absolute;z-index:10001;padding:10px 10px 10px 10px ;  line-height: 200%;">' + data.title + '</br></br>' + data.desc + '</br></br>lieux :' + data.addr + '</div>';
+		if (data.addr) {
+			lieu = data.addr;
+		} else {
+			lieu = "Non indiqué";
+		};
+		if (data.desc) {
+		} else {
+			data.desc = "---";
+		};
+		if (data.start.format("d") != data.end.format("d")) {
+			data.end.subtract(1, "seconds");
+			formatdate = "dddd DD/MM";
+		} else {
+			formatdate = "hh:mm";
+		};
+
+//'<div>' + Object.keys(data)+ '<br/><br/> ' + data.allDay + '<br/><br/> ' + '</div>'
+            tooltip = '<div class="tooltiptopicevent" style="width:20%;border-radius:10px 25px;height:auto;background:'+data.color+';position:absolute;z-index:10001;padding:10px 10px 10px 10px ;  line-height: 100%;">' + data.start.format(formatdate) + " ~ " + data.end.format(formatdate) + "<br/><br/><b>" + data.title + '</b></br></br>' + data.desc + '</br></br>lieu : ' + lieu + '</div>';
 
 
             $("body").append(tooltip);
