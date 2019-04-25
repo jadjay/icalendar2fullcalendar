@@ -56,7 +56,7 @@ $(document).ready(function() {
 			data.end.subtract(1, "seconds");
 			formatdate = "dddd DD/MM";
 		} else {
-			formatdate = "hh:mm";
+			formatdate = "HH:mm";
 		};
 
 //'<div>' + Object.keys(data)+ '<br/><br/> ' + data.allDay + '<br/><br/> ' + '</div>'
