@@ -76,6 +76,7 @@ function fc_event(event, event_callback) {
     } catch (TypeError) {
         e['allDay'] = true
     }
+
     event_callback(e)
 }
 

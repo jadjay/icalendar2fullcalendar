@@ -1,6 +1,6 @@
 ics_sources = [
-    {url:'https://sogo.alolise.org/SOGo/dav/public/jerome.avond/Calendar/2BBA-5AB19A00-1-1147EF20.ics',event_properties:{color:'gold'}},
-    {url:'http://sogo.alolise.org/SOGo/dav/public/contact.la-bricoleuse/Calendar/5A19-5CC08400-1-65AE8400.ics',event_properties:{color:'crimson'}}
+    {name:'Alolise',url:'https://sogo.alolise.org/SOGo/dav/public/jerome.avond/Calendar/2BBA-5AB19A00-1-1147EF20.ics',event_properties:{color:'gold'}},
+    {name:'Bricoleuse',url:'http://sogo.alolise.org/SOGo/dav/public/contact.la-bricoleuse/Calendar/5A19-5CC08400-1-65AE8400.ics',event_properties:{color:'crimson'}}
 ]
 
 
@@ -82,12 +82,29 @@ $(document).ready(function() {
 
         },
 
-    })
-    sources_to_load_cnt = ics_sources.length
+    });
+	$( "#footer" ).width('20%');
+	$( "#footer" ).center();
+	listul = '<ul>';
+	listdiv = '';
+	t = 0;
+	for (el of ics_sources) {
+
+		listul += '<li><a href="#footer-' + t + '">' + el.name + '</a></li>';
+		listdiv += '<div id="footer-'+ t + '">' + '<a href=' + el.url + '>Récupérer le calendrier ' + el.name + '</a></div>';
+		t += 1;
+	}
+	$('#footer').append(listul);
+	$('#footer').append('</ul>');
+	$('#footer').append(listdiv);
+
+	$( "#footer" ).tabs();
+
+    sources_to_load_cnt = ics_sources.length;
     for (ics of ics_sources) {
-        load_ics(ics)
+        load_ics(ics);
     }
-    add_recur_events()
+    add_recur_events();
 })
 
 /*
