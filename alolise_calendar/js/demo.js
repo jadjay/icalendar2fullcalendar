@@ -1,5 +1,5 @@
 ics_sources = [
-    {url:'http://sogo.alolise.org/SOGo/dav/public/contact/Calendar/7ED8-5CC21C00-5-16859160.ics', event_properties:{color: '#33CC00'}},
+    {url:'https://sogo.alolise.org/SOGo/dav/public/contact/Calendar/7ED8-5CC21C00-5-16859160.ics', event_properties:{color: '#33CC00'}},
 //    {url:'https://sogo.alolise.org/SOGo/dav/public/jerome.avond/Calendar/2BBA-5AB19A00-1-1147EF20.ics',event_properties:{color:'gold'}},
 //    {url:'http://sogo.alolise.org/SOGo/dav/public/contact.la-bricoleuse/Calendar/5A19-5CC08400-1-65AE8400.ics',event_properties:{color:'crimson'}}
 ]
@@ -42,6 +42,12 @@ $(document).ready(function() {
 	    /*
         defaultDate: '2016-03-01'
 	*/
+	  eventClick: function(event) {
+		      if (event.url) {
+			        window.open(event.url, '_blank');
+			      	return false;
+			          }
+		    },
         eventMouseover: function (data, event, view) {
 
 		if (data.addr) {
@@ -61,7 +67,7 @@ $(document).ready(function() {
 		};
 
 //'<div>' + Object.keys(data)+ '<br/><br/> ' + data.allDay + '<br/><br/> ' + '</div>'
-            tooltip = '<div class="tooltiptopicevent" style="width:20%;border-radius:10px 25px;height:auto;background:'+data.color+';position:absolute;z-index:10001;padding:10px 10px 10px 10px ;  line-height: 100%;">' + data.start.format(formatdate) + " ~ " + data.end.format(formatdate) + "<br/><br/><b>" + data.title + '</b></br></br>' + data.desc + '</br></br>lieu : ' + lieu + '</div>';
+            tooltip = '<div class="tooltiptopicevent" style="width:100;border-radius:10px 25px;height:auto;background:'+data.color+';position:absolute;z-index:10001;padding:10px 10px 10px 10px ;  line-height: 100%;">' + data.start.format(formatdate) + " ~ " + data.end.format(formatdate) + "<br/><br/><b>" + data.title + '</b></br></br>' + data.desc + '</br></br>lieu : ' + lieu + '</div>';
 
 
             $("body").append(tooltip);
@@ -70,8 +76,22 @@ $(document).ready(function() {
                 $('.tooltiptopicevent').fadeIn('500');
                 $('.tooltiptopicevent').fadeTo('10', 1.9);
             }).mousemove(function (e) {
-                $('.tooltiptopicevent').css('top', e.pageY + 10);
-                $('.tooltiptopicevent').css('left', e.pageX + 20);
+                	$('.tooltiptopicevent').css('z-index', 10000);
+                	$('.tooltiptopicevent').css('left', 0);
+                	$('.tooltiptopicevent').css('top', 0);
+		    /*
+		    marge = 20;
+		    if (e.pageX < 220) { 
+                	$('.tooltiptopicevent').css('left', e.pageX + marge);
+			} else {
+                	$('.tooltiptopicevent').css('left', e.pageX - 200 - marge);
+			}
+		    if (e.pageY < 250) { 
+                	$('.tooltiptopicevent').css('top', e.pageY + 10);
+			} else {
+                	$('.tooltiptopicevent').css('bottom', 500 - e.pageY - 10);
+			}
+			*/
             });
 
 
