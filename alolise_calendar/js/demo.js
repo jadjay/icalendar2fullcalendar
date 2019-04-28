@@ -1,6 +1,7 @@
 ics_sources = [
-    {url:'https://sogo.alolise.org/SOGo/dav/public/jerome.avond/Calendar/2BBA-5AB19A00-1-1147EF20.ics',event_properties:{color:'gold'}},
-    {url:'http://sogo.alolise.org/SOGo/dav/public/contact.la-bricoleuse/Calendar/5A19-5CC08400-1-65AE8400.ics',event_properties:{color:'crimson'}}
+    {url:'http://sogo.alolise.org/SOGo/dav/public/contact/Calendar/7ED8-5CC21C00-5-16859160.ics', event_properties:{color: '#33CC00'}},
+//    {url:'https://sogo.alolise.org/SOGo/dav/public/jerome.avond/Calendar/2BBA-5AB19A00-1-1147EF20.ics',event_properties:{color:'gold'}},
+//    {url:'http://sogo.alolise.org/SOGo/dav/public/contact.la-bricoleuse/Calendar/5A19-5CC08400-1-65AE8400.ics',event_properties:{color:'crimson'}}
 ]
 
 
